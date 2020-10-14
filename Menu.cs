@@ -7,13 +7,22 @@ namespace RestaurantMenu
 {
     class Menu
     {
-        List<Dictionary<string, string>> menu = new List<Dictionary<string, string>>();
+        public List<Dictionary<string, string>> menuList = new List<Dictionary<string, string>>();
 
         public Menu()
         {
 
         }
 
+        public void Add(Dictionary<string, string> menuItem)
+        {
+            menuList.Add(menuItem);
+        }
+
+        public List<Dictionary<string, string>> MenuList 
+        {
+            get {return menuList;}
+        }
         
     }
 }
