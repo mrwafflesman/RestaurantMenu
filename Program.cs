@@ -7,7 +7,7 @@ namespace RestaurantMenu
     {
         static void Main(string[] args)
         {
-            //int input;
+            int input;
 
             MenuItem hamburger = new MenuItem("Hamburger", "5", "A Hamburger", "Entree", "No");
             MenuItem chicken = new MenuItem("Chicken Tenders", "6", "Chicken Tenders", "Entree", "No");
@@ -17,41 +17,63 @@ namespace RestaurantMenu
             menu.Add(hamburger.AddMenuItem());
             menu.Add(chicken.AddMenuItem());
             menu.Add(fries.AddMenuItem());
-
-
-
-            foreach(Dictionary<string, string> item in menu.MenuList)
-            {
-                Console.WriteLine(item["Name"]);
-            }
-            /*
+            
             while(true) 
             {
                 Console.WriteLine("What would you like to do?\n0 - Add menu item\n1 - remove menu item\n2 - print menu item\n3 - print menu");
                 input = int.Parse(Console.ReadLine());
 
-                if(input == 0) 
+                if(input == 0)
                 {
-                    MenuItem.AddMenuItem();
+                    string name;
+                    string price;
+                    string desc;
+                    string category;
+
+                    Console.WriteLine("Name of dish.");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Dish price.");
+                    price = Console.ReadLine();
+
+                    Console.WriteLine("Description of dish.");
+                    desc = Console.ReadLine();
+
+                    Console.WriteLine("Dish category.");
+                    category = Console.ReadLine();
+
+                    MenuItem newItem = new MenuItem(name, price, desc, category, "Yes");
+
+                    menu.Add(newItem.AddMenuItem());
                 }
                 else if(input == 1)
                 {
-                    MenuItem.RemoveMenuItem();
+                    string name;
+
+                    Console.WriteLine("Enter the name of the item to be removed.");
+                    name = Console.ReadLine();
+
+                    menu.RemoveItem(name);
                 }
-                else if(input == 2) 
+                else if(input == 2)
                 {
-                    MenuItem.PrintMenuItem();
+                    string name;
+
+                    Console.WriteLine("Enter the name of the item:");
+                    name = Console.ReadLine();
+
+                    menu.PrintMenuItem(name);
                 }
                 else if(input == 3) 
                 {
-                    Menu.PrintMenu();
+                    menu.PrintMenu();
                 }
                 else 
                 {
-                    Console.WriteLine("Invalid input.")
+                    Console.WriteLine("Invalid input.");
                 }
             }
-            */
+            
         }
     }
 }
